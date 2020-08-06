@@ -1,13 +1,7 @@
 <template>
-  <v-container
-    id="main"
-    tag="main"
-  >
+  <v-container id="main" tag="main">
     <v-row>
-      <v-col
-        class="text-center"
-        style="margin-bottom: 2.5em;"
-      >
+      <v-col class="text-center" style="margin-bottom: 2.5em;">
         <h1>
           {{ page.title }}
         </h1>
@@ -24,7 +18,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['page'])
-  }
+    ...mapGetters(['page']),
+  },
 }
 </script>

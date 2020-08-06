@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-row>
-      <v-col style="margin-bottom: 2.5em; padding: 0">
+      <v-col style="margin-bottom: 2.5em; padding: 0;">
         <v-img
           style="height: 500px;"
-          :src="`http://localhost/mysites/${services.hero.path}`" 
+          :src="`http://localhost/mysites/${services.hero.path}`"
         >
           <div class="imgOverlay" />
           <h3 class="overlayText">
@@ -13,19 +13,14 @@
         </v-img>
       </v-col>
     </v-row>
-    
-    <v-container
-      id="main"
-      tag="main"
-      fluid
-      style="padding: 0 20%"
-    >
+
+    <v-container id="main" tag="main" fluid style="padding: 0 20%;">
       <v-row>
         <v-col style="margin-bottom: 2.5em;">
           <h1 class="accent--text">
             {{ services.title }}
           </h1>
-          <br>
+          <br />
           <p>
             {{ services.content }}
           </p>
@@ -39,8 +34,8 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['services'])
-  }
+    ...mapGetters(['services']),
+  },
 }
 </script>
 <style scoped>

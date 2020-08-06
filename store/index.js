@@ -6,83 +6,83 @@ export const state = () => ({
       site_title: null,
       motto: null,
       favicon: {
-        path: ''
+        path: '',
       },
       logo: {
-        path: ''
-      }
+        path: '',
+      },
     },
     contact_info: {
       phone: null,
       email: null,
-      address: null
+      address: null,
     },
     social: {
       facebook: null,
       twitter: null,
-      google_plus: null
+      google_plus: null,
     },
     footer: {
       year: null,
-      company_title: null
-    }
+      company_title: null,
+    },
   },
   nav: {
     single: [],
     dropdown: [],
-    permanent: []
+    permanent: [],
   },
   home: {
     headline: null,
     subheadline: null,
     hero: {
-      path: ''
+      path: '',
     },
     blurb: {
       title: null,
       content: null,
       image: {
-        path: ''
-      }
+        path: '',
+      },
     },
-    blurbs: []
+    blurbs: [],
   },
   services: {
     title: null,
     hero: {
-      path: ''
+      path: '',
     },
     content: null,
-    seo_description: null
+    seo_description: null,
   },
   work: {
     title: null,
     hero: {
-      path: ''
+      path: '',
     },
-    gallery: []
+    gallery: [],
   },
   works: [],
   about: {
     title: null,
     hero: {
-      path: ''
+      path: '',
     },
     content: null,
-    seo_description: null
+    seo_description: null,
   },
   contact: {
     title: null,
     hero: {
-      path: ''
+      path: '',
     },
     content: null,
     contact_form: {
       success_message: null,
-      error_message: null
+      error_message: null,
     },
-    seo_description: null
-  }
+    seo_description: null,
+  },
 })
 
 export const getters = {
@@ -109,7 +109,7 @@ export const getters = {
   },
   contact(state) {
     return state.contact
-  }
+  },
 }
 
 export const mutations = {
@@ -120,7 +120,7 @@ export const mutations = {
     const nav = {
       single: [],
       dropdown: [],
-      permanent: []
+      permanent: [],
     }
 
     for (let x = 0; x < payload.length; x++) {
@@ -134,8 +134,6 @@ export const mutations = {
         nav.permanent.push(payload[x])
       }
     }
-    // eslint-disable-next-line
-    console.log('nav', nav)
     state.nav = nav
   },
   SET_GLOBAL_HEADER(state, payload) {
@@ -148,43 +146,39 @@ export const mutations = {
     state.services = payload.services
   },
   SET_WORKS(state, payload) {
-    // eslint-disable-next-line
-    console.log('works ', payload)
     state.works = payload
   },
   SET_WORK(state, payload) {
-    // eslint-disable-next-line
-    console.log('set work ', payload)
     state.work.title = payload.value.title
     state.work.hero = payload.value.hero
     state.work.gallery = payload.value.gallery
-  }
+  },
 }
 
 export const actions = {
   getGlobals(context, params) {
-    Request.getObjectsBy(params).then(res => {
+    Request.getObjectsBy(params).then((res) => {
       context.commit('SET_GLOBALS', res)
       // Helper.arrayCleaner.apply(null, res.nav)
     })
   },
   getNav(context, params) {
-    Request.getObjectsBy(params).then(res => {
+    Request.getObjectsBy(params).then((res) => {
       context.commit('SET_NAV', res)
     })
   },
   getPages(context, params) {
     Request.getObjectsBy(params)
-      .then(res => {
+      .then((res) => {
         context.commit('SET_PAGES', res)
       })
-      .catch(error => {
+      .catch((error) => {
         // eslint-disable-next-line no-console
         console.log(error)
       })
   },
   getWorks(context, params) {
-    Request.getObjectsBy(params).then(res => {
+    Request.getObjectsBy(params).then((res) => {
       context.commit('SET_WORKS', res)
     })
   },
@@ -196,5 +190,5 @@ export const actions = {
         context.commit('SET_WORK', filteredWork)
       }
     }
-  }
+  },
 }

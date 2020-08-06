@@ -70,26 +70,17 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         light: {
-          primary: colors.blue.lighten2,
-          accent: colors.grey.lighten3,
-          secondary: colors.amber.lighten3,
-          info: colors.teal.darken1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
-        dark: {
           primary: '#212121', // a color that is not in the material colors palette
           accent: '#424242',
           secondary: '#fafafa',
           info: '#31708f',
           warning: '8a6d3b',
           error: '#a94442',
-          success: colors.green.accent3
-        }
+          success: colors.green.accent3,
+        },
       },
     },
   },
@@ -97,5 +88,20 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        })
+      }
+    },
+  },
 }

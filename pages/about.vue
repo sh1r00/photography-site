@@ -4,7 +4,7 @@
       <v-col style="margin-bottom: 2.5em; padding: 0;">
         <v-img
           style="display: block; height: 500px;"
-          :src="`http://localhost/mysites/${about.hero.path}`" 
+          :src="`http://localhost/mysites/${about.hero.path}`"
         >
           <div class="imgOverlay" />
           <h3 class="overlayText">
@@ -13,18 +13,14 @@
         </v-img>
       </v-col>
     </v-row>
-    
-    <v-container
-      id="main"
-      tag="main"
-      style="padding: 0 20%"
-    >
+
+    <v-container id="main" tag="main" style="padding: 0 20%;">
       <v-row>
         <v-col style="margin-bottom: 2.5em;">
           <h1 class="accent--text">
             {{ about.title }}
           </h1>
-          <br>
+          <br />
           <p>
             {{ about.content }}
           </p>
@@ -38,8 +34,8 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['about'])
-  }
+    ...mapGetters(['about']),
+  },
 }
 </script>
 

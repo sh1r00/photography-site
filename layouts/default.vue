@@ -1,17 +1,8 @@
 <template>
   <v-app>
-    <v-container
-      class="pa-0"
-      fluid
-    >
-      <v-row
-        id="header"
-        tag="header"
-      >
-        <v-col
-          class="text-center pa-0"
-          style=" height: auto;"
-        >
+    <v-container class="pa-0" fluid>
+      <v-row id="header" tag="header">
+        <v-col class="text-center pa-0" style="height: auto;">
           <app-nav-bar
             :logo="globals.header.logo.path"
             @toggle-nav-drawer="toggleDrawer = !toggleDrawer"
@@ -23,13 +14,8 @@
           />
         </v-col>
       </v-row>
-    
-      <v-container
-        id="main"
-        tag="main"
-        fluid
-        class="pa-0"
-      >
+
+      <v-container id="main" tag="main" fluid class="pa-0">
         <nuxt />
       </v-container>
       <app-footer />
@@ -47,21 +33,21 @@ export default {
   components: {
     AppNavBar,
     AppNavDrawer,
-    AppFooter
+    AppFooter,
   },
   data() {
     return {
-      toggleDrawer: false
+      toggleDrawer: false,
     }
   },
   computed: {
-    ...mapGetters(['globals'])
+    ...mapGetters(['globals']),
   },
   created() {
     this.$store.dispatch('getGlobals', 'globals')
     this.$store.dispatch('getNav', 'nav')
     this.$store.dispatch('getPages', 'page')
-  }
+  },
 }
 </script>
 

@@ -9,7 +9,7 @@ function arrayCleaner(params) {
     for (const key in currObj) {
       if (
         Object.prototype.hasOwnProperty.call(currObj, key) &&
-        currObj[key] instanceof Array
+        Array.isArray(currObj[key])
       ) {
         arrayCleaner(currObj[key])
       } else {
@@ -23,5 +23,5 @@ function arrayCleaner(params) {
 }
 
 export default {
-  arrayCleaner
+  arrayCleaner,
 }

@@ -1,19 +1,13 @@
 <template>
   <div>
-    <v-row
-      id="main"
-      tag="main"
-    >
+    <v-row id="main" tag="main">
       <v-img
         style="height: 500px;"
-        :src="`http://localhost/mysites/${home.hero.path}`" 
+        :src="`http://localhost/mysites/${home.hero.path}`"
       >
         <div class="imgOverlay" />
         <div class="overlayText">
-          <h2 
-            style="font-size: 1.65em"
-            class="secondary--text"
-          >
+          <h2 style="font-size: 1.65em;" class="secondary--text">
             {{ home.headline }}
           </h2>
           <p style="font-size: 2.25em;">
@@ -22,14 +16,9 @@
         </div>
       </v-img>
     </v-row>
-    
-    <v-container
-      id="main"
-      tag="main"
-      fluid
-      style="padding: 0 15%"
-    >
-      <v-row 
+
+    <v-container id="main" tag="main" fluid style="padding: 0 15%;">
+      <v-row
         v-if="home.blurbs"
         id="blurbs"
         tag="section"
@@ -42,7 +31,7 @@
           lg="4"
           class="text-center pa-4"
         >
-          <div style="margin-bottom: 1.25em">
+          <div style="margin-bottom: 1.25em;">
             <v-img
               class="img-circle center-block"
               :src="`http://localhost/mysites/${item.value.image.path}`"
@@ -53,7 +42,10 @@
           <p style="font-size: 1.625em; margin: 0 0 1.25em 0;">
             {{ item.value.title }}
           </p>
-          <span class="accent--text text-center pa-3" style="margin-bottom: 1.25em;">
+          <span
+            class="accent--text text-center pa-3"
+            style="margin-bottom: 1.25em;"
+          >
             {{ item.value.content }}
           </span>
         </v-col>
@@ -69,8 +61,8 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['home'])
-  }
+    ...mapGetters(['home']),
+  },
 }
 </script>
 

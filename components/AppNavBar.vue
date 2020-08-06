@@ -1,16 +1,6 @@
 <template>
-  <v-toolbar
-    flat
-    color="primary"
-    class="pa-0"
-    dense
-  >
-    <v-btn
-      width="80px"
-      height="40px"
-      text
-      to="/"
-    >
+  <v-toolbar flat color="primary" class="pa-0" dense>
+    <v-btn width="80px" height="40px" text to="/">
       <v-img
         width="80px"
         height="40px"
@@ -19,10 +9,7 @@
     </v-btn>
     <v-spacer />
     <v-toolbar-items class="hidden-sm-and-down">
-      <div 
-        v-for="(item) in nav.single"
-        :key="item.value.title"
-      >
+      <div v-for="item in nav.single" :key="item.value.title">
         <v-btn
           text
           :to="item.value.content[0].value"
@@ -33,29 +20,18 @@
           {{ item.value.title }}
         </v-btn>
       </div>
-      <div
-        v-for="(item) in nav.dropdown"
-        :key="item.value.title"
-      >
+      <div v-for="item in nav.dropdown" :key="item.value.title">
         <v-menu>
           <template v-slot:activator="{ on }">
-            <v-btn
-              text
-              class="secondary--text"
-              v-on="on"
-            >
+            <v-btn text class="secondary--text" v-on="on">
               {{ item.value.title }} &darr;
             </v-btn>
           </template>
           <v-list
-            v-for="(dropItem) in item.value.content"
+            v-for="dropItem in item.value.content"
             :key="dropItem.value.title"
           >
-            <v-list-item
-              :to="`/page/${dropItem.value.title}`"
-              link
-              exact
-            >
+            <v-list-item :to="`/page/${dropItem.value.title}`" link exact>
               <v-list-item-content>
                 <v-list-item-title class="secondary--text">
                   {{ dropItem.value.title }}
@@ -65,10 +41,7 @@
           </v-list>
         </v-menu>
       </div>
-      <div 
-        v-for="(item) in nav.permanent"
-        :key="item.value.title"
-      >
+      <div v-for="item in nav.permanent" :key="item.value.title">
         <v-btn
           text
           :to="item.value.content[0].value"
@@ -80,10 +53,7 @@
         </v-btn>
       </div>
     </v-toolbar-items>
-    <v-app-bar-nav-icon
-      class="hidden-md-and-up"
-      @click="toggleNavDrawer"
-    />
+    <v-app-bar-nav-icon class="hidden-md-and-up" @click="toggleNavDrawer" />
   </v-toolbar>
 </template>
 
@@ -94,16 +64,16 @@ export default {
   props: {
     logo: {
       type: String,
-      default: 'null'
-    }
+      default: 'null',
+    },
   },
   computed: {
-    ...mapGetters(['nav'])
+    ...mapGetters(['nav']),
   },
   methods: {
     toggleNavDrawer() {
       this.$emit('toggle-nav-drawer')
-    }
-  }
+    },
+  },
 }
 </script>

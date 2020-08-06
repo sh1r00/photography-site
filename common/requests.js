@@ -10,17 +10,15 @@ function getObjects() {
     fetch(endpoint, {
       method: 'get',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
-      .then(response =>
-        response.json().then(data => {
+      .then((response) =>
+        response.json().then((data) => {
           resolve(data)
         })
       )
-      .catch(error => {
-        // eslint-disable-next-line
-        console.log('fetch menu error', error)
+      .catch((error) => {
         reject(error)
       })
   })
@@ -33,11 +31,11 @@ function getObjectsBy(objectsFilter) {
     fetch(endpoint, {
       method: 'get',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
-      .then(response =>
-        response.json().then(data => {
+      .then((response) =>
+        response.json().then((data) => {
           const filterer = data.entries[0]
           const filteredData = filterer[objectsFilter]
           resolve(filteredData)
@@ -57,9 +55,7 @@ function getObjectsBy(objectsFilter) {
           */
         })
       )
-      .catch(error => {
-        // eslint-disable-next-line
-        console.log('fetch menu error', error)
+      .catch((error) => {
         reject(error)
       })
   })
@@ -67,5 +63,5 @@ function getObjectsBy(objectsFilter) {
 
 export default {
   getObjects,
-  getObjectsBy
+  getObjectsBy,
 }

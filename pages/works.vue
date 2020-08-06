@@ -1,20 +1,13 @@
 <template>
-  <v-container
-    id="main"
-    tag="main"
-    style="padding-top: 2.5em;"
-  >
+  <v-container id="main" tag="main" style="padding-top: 2.5em;">
     <div v-if="works">
       <v-row>
         <v-col
           v-for="(item, index) in works"
           :key="index"
-          style="margin-bottom: 3.8em"
+          style="margin-bottom: 3.8em;"
         >
-          <router-link
-            :to="`/work/${item.value.title}`"
-            class="images"
-          >
+          <router-link :to="`/work/${item.value.title}`" class="images">
             <h3
               class="accent--text"
               style="margin-bottom: 1.625em; font-size: 1.65em;"
@@ -38,11 +31,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['works'])
+    ...mapGetters(['works']),
   },
   mounted() {
     this.$store.dispatch('getWorks', 'works')
-  }
+  },
 }
 </script>
 

@@ -1,23 +1,17 @@
 <template>
-  <v-footer
-    color="primary"
-    class="white--text footer invisible"
-  >
+  <v-footer color="primary" class="white--text footer invisible">
     <v-row>
       <v-col>
         <v-col sm="8">
           <div style="font-size: 1.25em; margin-bottom: 0.625em;">
             Contact Us
           </div>
-          <br>
+          <br />
           <strong>
             Phone:
           </strong>
-          <br>
-          <v-btn
-            :href="`tel:${globals.contact_info.phone}`"
-            text
-          >
+          <br />
+          <v-btn :href="`tel:${globals.contact_info.phone}`" text>
             <h5
               style="font-family: Arial, Helvetica, sans-serif;"
               class="white--text"
@@ -26,16 +20,13 @@
             </h5>
           </v-btn>
         </v-col>
-        <br>
+        <br />
         <v-col sm="8">
           <strong>
             Email:
           </strong>
-          <br>
-          <v-btn
-            :href="`mailto:${globals.contact_info.email}`"
-            text
-          >
+          <br />
+          <v-btn :href="`mailto:${globals.contact_info.email}`" text>
             <h5
               style="font-family: Arial, Helvetica, sans-serif;"
               class="white--text"
@@ -44,12 +35,12 @@
             </h5>
           </v-btn>
         </v-col>
-        <br>
+        <br />
         <v-col sm="8">
           <strong>
             Address:
           </strong>
-          <br>
+          <br />
           <v-btn
             :href="`http://maps.google.com/?q=${globals.contact_info.address}`"
             target="blank"
@@ -77,7 +68,7 @@
               target="_blank"
               text
             >
-              <v-icon>
+              <v-icon color="#3D59AB">
                 mdi-facebook
               </v-icon>
             </v-btn>
@@ -87,7 +78,7 @@
               target="_blank"
               text
             >
-              <v-icon>
+              <v-icon class="light-blue">
                 mdi-twitter
               </v-icon>
             </v-btn>
@@ -97,18 +88,18 @@
               target="_blank"
               text
             >
-              <v-icon>
+              <v-icon class="white">
                 mdi-google-plus
               </v-icon>
             </v-btn>
           </div>
-          <div style="margin-bottom: 1.625em">
+          <div style="margin-bottom: 1.625em;">
             &copy; {{ globals.footer.year }} {{ globals.footer.company_title }}
           </div>
         </v-col>
       </v-col>
     </v-row>
-  </v-footer>  
+  </v-footer>
 </template>
 
 <script>
@@ -116,8 +107,8 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['globals'])
-  }
+    ...mapGetters(['globals']),
+  },
 }
 </script>
 

@@ -4,7 +4,7 @@
       <v-col style="padding: 0;">
         <v-img
           style="height: 500px;"
-          :src="`http://localhost/mysites/${contact.hero.path}`" 
+          :src="`http://localhost/mysites/${contact.hero.path}`"
         >
           <div class="imgOverlay" />
           <h3 class="overlayText">
@@ -13,38 +13,23 @@
         </v-img>
       </v-col>
     </v-row>
-    
-    <v-container
-      id="main"
-      tag="main"
-      fluid
-      style="padding: 0 20%"
-    >
+
+    <v-container id="main" tag="main" fluid style="padding: 0 20%;">
       <v-row>
-        <v-col
-          cols="12"
-          lg="6"
-        >
-          <div style="margin-bottom: 1.625em">
+        <v-col cols="12" lg="6">
+          <div style="margin-bottom: 1.625em;">
             <h1 class="accent--text">
               {{ contact.title }}
             </h1>
-            <br>
+            <br />
             <p>
               {{ contact.content }}
             </p>
           </div>
         </v-col>
-        <v-col
-          style="padding-top: 2.5em"
-          cols="12"
-          lg="6"
-        >
+        <v-col style="padding-top: 2.5em;" cols="12" lg="6">
           <v-form id="contact-form">
-            <v-text-field
-              label="Name"
-              placeholder="Enter your full name"
-            />
+            <v-text-field label="Name" placeholder="Enter your full name" />
             <v-text-field
               label="Email"
               placeholder="Enter your email address"
@@ -53,21 +38,17 @@
               label="Phone (optional)"
               placeholder="Enter your phone number"
             />
-            <v-textarea
-              label="Message"
-              placeholder="Enter a message"
-            />
-            <div class="alert alert-success success-message hidden success--text">
+            <v-textarea label="Message" placeholder="Enter a message" />
+            <div
+              class="alert alert-success success-message hidden success--text"
+            >
               {{ contact.contact_form.success_message }}
             </div>
             <div class="alert alert-danger error-message hidden error--text">
               {{ contact.contact_form.error_message }}
             </div>
-            <div style="margin-top: 1.625em">
-              <v-btn
-                color="primary"
-                lg
-              >
+            <div style="margin-top: 1.625em;">
+              <v-btn color="primary" lg>
                 Submit
               </v-btn>
             </div>
@@ -83,8 +64,8 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['contact'])
-  }
+    ...mapGetters(['contact']),
+  },
 }
 </script>
 <style scoped>
