@@ -42,17 +42,25 @@
           </strong>
           <br />
           <v-btn
-            :href="`http://maps.google.com/?q=${globals.contact_info.address}`"
+            :href="`http://maps.google.com/?q=${globals.contact_info.address.street} ${globals.contact_info.address.city}`"
             target="blank"
             max-width="300"
             text
           >
-            <h5
-              style="font-family: Arial, Helvetica, sans-serif;"
-              class="white--text"
-            >
-              {{ globals.contact_info.address }}
-            </h5>
+            <v-col>
+              <h5
+                style="font-family: Arial, Helvetica, sans-serif;"
+                class="white--text"
+              >
+                {{ globals.contact_info.address.street }}
+              </h5>
+              <h5
+                style="font-family: Arial, Helvetica, sans-serif;"
+                class="white--text"
+              >
+                {{ globals.contact_info.address.city }}
+              </h5>
+            </v-col>
           </v-btn>
         </v-col>
       </v-col>

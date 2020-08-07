@@ -8,7 +8,7 @@
       />
     </v-btn>
     <v-spacer />
-    <v-toolbar-items class="hidden-sm-and-down">
+    <v-toolbar-items class="hidden-sm-and-down pa-0">
       <div v-for="item in nav.single" :key="item.value.title">
         <v-btn
           text
@@ -53,7 +53,11 @@
         </v-btn>
       </div>
     </v-toolbar-items>
-    <v-app-bar-nav-icon class="hidden-md-and-up" @click="toggleNavDrawer" />
+    <v-app-bar-nav-icon
+      color="secondary"
+      class="hidden-md-and-up"
+      @click="toggleNavDrawer"
+    />
   </v-toolbar>
 </template>
 

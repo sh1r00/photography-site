@@ -3,6 +3,7 @@ import Request from '~/common/requests.js'
 export const state = () => ({
   globals: {
     header: {
+      site_description: null,
       site_title: null,
       motto: null,
       favicon: {
@@ -15,7 +16,10 @@ export const state = () => ({
     contact_info: {
       phone: null,
       email: null,
-      address: null,
+      address: {
+        street: null,
+        city: null,
+      },
     },
     social: {
       facebook: null,
@@ -61,6 +65,7 @@ export const state = () => ({
       path: '',
     },
     gallery: [],
+    tags: [],
   },
   works: [],
   about: {

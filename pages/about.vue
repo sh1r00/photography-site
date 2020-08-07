@@ -3,7 +3,9 @@
     <v-row>
       <v-col style="margin-bottom: 2.5em; padding: 0;">
         <v-img
-          style="display: block; height: 500px;"
+          style="display: block;"
+          height="500px"
+          max-width="100%"
           :src="`http://localhost/mysites/${about.hero.path}`"
         >
           <div class="imgOverlay" />

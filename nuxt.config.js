@@ -1,6 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
+  env: {
+    publicUrl: process.env.PUBLIC_URL || '0.0.0.0:3000',
+    baseUrl: process.env.BASE_URL,
+    apiUrl: process.env.API_URL,
+    apiToken: process.env.API_TOKEN,
+    collectionName: process.env.COLLECTION_NAME,
+  },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -50,6 +58,8 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
+    'vue-social-sharing/nuxt',
   ],
   /*
    ** Nuxt.js modules
@@ -93,6 +103,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
+      config.node = {
+        fs: 'empty',
+      }
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({

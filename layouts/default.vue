@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container class="pa-0" fluid>
+    <v-container class="pa-0" max-width="100vh" fluid>
       <v-row id="header" tag="header">
         <v-col class="text-center pa-0" style="height: auto;">
           <app-nav-bar
