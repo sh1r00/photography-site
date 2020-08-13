@@ -1,8 +1,13 @@
 import colors from 'vuetify/es5/util/colors'
-const env = require('dotenv').config()
+// const env = require('dotenv').config()
 
 export default {
-  env: env.parsed,
+  env: {
+    BASE_URL: 'https://heroku-cockpit.herokuapp.com',
+    API_URL: 'api/collections',
+    API_TOKEN: 'dd76903e45b460b237404e5008f081',
+    COLLECTION_NAME: 'photographySite',
+  },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
