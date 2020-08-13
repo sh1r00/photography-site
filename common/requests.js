@@ -9,6 +9,7 @@ function getObjects() {
       baseUrl + '/' + apiUrl + '/get/' + collectionName + '?token=' + apiToken
     fetch(endpoint, {
       method: 'get',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -30,6 +31,7 @@ function getObjectsBy(objectsFilter) {
       baseUrl + '/' + apiUrl + '/get/' + collectionName + '?token=' + apiToken
     fetch(endpoint, {
       method: 'get',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
