@@ -1,7 +1,7 @@
-const baseUrl = process.env.baseUrl
-const apiUrl = process.env.apiUrl
-const apiToken = process.env.apiToken
-const collectionName = process.env.collectionName
+const baseUrl = process.env.BASE_URL
+const apiUrl = process.env.API_URL
+const apiToken = process.env.API_TOKEN
+const collectionName = process.env.COLLECTION_NAME
 
 function getObjects() {
   return new Promise((resolve, reject) => {
