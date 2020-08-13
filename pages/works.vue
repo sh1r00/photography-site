@@ -17,7 +17,7 @@
             <v-img
               max-width="250px"
               height="250px"
-              :src="`http://localhost/mysites/${item.value.hero.path}`"
+              :src="`${baseUrl}${item.value.hero.path}`"
             />
           </router-link>
         </v-col>
@@ -32,6 +32,9 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['works']),
+    baseUrl() {
+      return process.env.BASE_URL
+    },
   },
   mounted() {
     this.$store.dispatch('getWorks', 'works')

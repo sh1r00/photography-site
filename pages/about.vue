@@ -6,7 +6,7 @@
           style="display: block;"
           height="500px"
           max-width="100%"
-          :src="`http://localhost/mysites/${about.hero.path}`"
+          :src="`${baseUrl}${about.hero.path}`"
         >
           <div class="imgOverlay" />
           <h3 class="overlayText">
@@ -37,6 +37,9 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['about']),
+    baseUrl() {
+      return process.env.BASE_URL
+    },
   },
 }
 </script>

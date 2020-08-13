@@ -1,11 +1,7 @@
 <template>
   <v-toolbar flat color="primary" class="pa-0" dense>
     <v-btn width="80px" height="40px" text to="/">
-      <v-img
-        width="80px"
-        height="40px"
-        :src="`http://localhost/mysites/${logo}`"
-      />
+      <v-img width="80px" height="40px" :src="`${baseUrl}${logo}`" />
     </v-btn>
     <v-spacer />
     <v-toolbar-items class="hidden-sm-and-down pa-0">
@@ -73,6 +69,9 @@ export default {
   },
   computed: {
     ...mapGetters(['nav']),
+    baseUrl() {
+      return process.env.BASE_URL
+    },
   },
   methods: {
     toggleNavDrawer() {

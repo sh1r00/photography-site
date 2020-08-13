@@ -2,10 +2,7 @@
   <div>
     <v-row>
       <v-col style="padding: 0;">
-        <v-img
-          style="height: 500px;"
-          :src="`http://localhost/mysites/${contact.hero.path}`"
-        >
+        <v-img style="height: 500px;" :src="`${baseUrl}${contact.hero.path}`">
           <div class="imgOverlay" />
           <h3 class="overlayText">
             {{ contact.subtitle }}
@@ -65,6 +62,9 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['contact']),
+    baseUrl() {
+      return process.env.BASE_URL
+    },
   },
 }
 </script>

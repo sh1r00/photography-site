@@ -24,7 +24,7 @@
               <v-img
                 max-height="500"
                 max-width="750"
-                :src="`http://localhost/mysites/${selectedImg.path}`"
+                :src="`${baseUrl}${selectedImg.path}`"
               >
                 <v-btn
                   class="imgShare-btn"
@@ -50,7 +50,7 @@
                       <v-list-item-content>
                         <shareNetwork
                           :network="item.network"
-                          :url="`${baseUrl}/work/${item.title}`"
+                          :url="`${networkUrl}/work/${item.title}`"
                           :title="globals.header.site_title"
                           :descrition="globals.site_description"
                           :quote="item.seo_description"
@@ -81,7 +81,7 @@
             tile
           >
             <v-row class="fill-height" align="center" justify="center">
-              <v-img :src="`http://localhost/mysites/${selectedImg.path}`">
+              <v-img :src="`${baseUrl}${selectedImg.path}`">
                 <v-btn
                   class="imgShare-btn"
                   @click="showImgShare = !showImgShare"
@@ -106,7 +106,7 @@
                       <v-list-item-content>
                         <shareNetwork
                           :network="item.network"
-                          :url="`${baseUrl}/work/${item.title}`"
+                          :url="`${networkUrl}/work/${item.title}`"
                           :title="globals.header.site_title"
                           :descrition="globals.header.site_description"
                           :quote="work.seo_description"
@@ -142,7 +142,7 @@
               width="150"
               @click="toggle, selectImg(item)"
             >
-              <v-img :src="`http://localhost/mysites/${item.path}`" />
+              <v-img :src="`${baseUrl}${item.path}`" />
               <v-row class="fill-height" align="center" justify="center">
                 <v-scale-transition>
                   <v-icon
@@ -167,7 +167,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      baseUrl: 'facebook.com',
+      networkUrl: 'facebook.com',
       selectedImg: null,
       showImgShare: false,
       shareItems: [
@@ -191,6 +191,9 @@ export default {
   },
   computed: {
     ...mapGetters(['work', 'globals']),
+    baseUrl() {
+      return process.env.BASE_URL
+    },
   },
   created() {
     this.$store.dispatch('getWorks', 'works')

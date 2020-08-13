@@ -1,10 +1,7 @@
 <template>
   <div>
     <v-row id="main" tag="main">
-      <v-img
-        style="height: 500px;"
-        :src="`http://localhost/mysites/${home.hero.path}`"
-      >
+      <v-img style="height: 500px;" :src="`${baseUrl}${home.hero.path}`">
         <div class="imgOverlay" />
         <div class="overlayText">
           <h2 style="font-size: 1.65em;" class="secondary--text">
@@ -34,7 +31,7 @@
           <div style="margin-bottom: 1.25em;">
             <v-img
               class="img-circle center-block"
-              :src="`http://localhost/mysites/${item.value.image.path}`"
+              :src="`${baseUrl}${item.value.image.path}`"
               height="250px"
               width="250px"
             />
@@ -62,6 +59,9 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['home']),
+    baseUrl() {
+      return process.env.BASE_URL
+    },
   },
 }
 </script>
